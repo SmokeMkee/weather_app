@@ -30,6 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  intl: ^0.17.0
   # svg
   flutter_svg: ^1.1.4
   #provider

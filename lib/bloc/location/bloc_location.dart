@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wheather_app/repo/repo_location.dart';
 import '../../model/location.dart';
@@ -7,6 +9,16 @@ part 'states.dart';
 part 'events.dart';
 
 class BlocLocation extends Bloc<EventBlocLocation, StateBlocLocation> {
+  List<String> statusWeather = [
+    'assets/images/bitmap/cloudy.png',
+    'assets/images/bitmap/night.png',
+    'assets/images/bitmap/rain.png',
+    'assets/images/bitmap/snowy.png',
+    'assets/images/bitmap/sun.png',
+    'assets/images/bitmap/sun_cloudy.png',
+    'assets/images/bitmap/thunder.png',
+  ];
+
   final RepoLocation repo;
   List<Location> sortedList = [];
   List<Location> favoriteList = [];
@@ -23,11 +35,15 @@ class BlocLocation extends Bloc<EventBlocLocation, StateBlocLocation> {
     emit(StateLocationLoading());
     final result = await repo.filterByName(event.cityName);
 
-    sortedList = result.productList!
-        .where((element) => element.cityName!
-            .toLowerCase()
-            .contains(event.cityName.trim().toLowerCase()))
-        .toList();
+    sortedList = result.productList!.where((element) {
+      for (var element in element.weather!) {
+        element.status = statusWeather[Random().nextInt(statusWeather.length)];
+      }
+
+      return element.cityName!
+          .toLowerCase()
+          .contains(event.cityName.trim().toLowerCase());
+    }).toList();
 
     if (result.errorMessage != null) {
       emit(
@@ -45,24 +61,23 @@ class BlocLocation extends Bloc<EventBlocLocation, StateBlocLocation> {
     EventAddFavoritesById event,
     Emitter<StateBlocLocation> emit,
   ) async {
-    var result = await repo.addFavoriteLocation(event.id!);
 
+    var id = sortedList
+        .indexWhere((element) => element.id == event.id.toString());
     if (favoriteList.isEmpty) {
-      favoriteList.add(result.favoritesLocation!);
-      sortedList[sortedList
-              .indexWhere((element) => element.id == event.id.toString())]
+      favoriteList.add(sortedList.firstWhere((element) => element.id == event.id.toString()));
+      sortedList[id]
           .isFavorite = true;
     } else if (favoriteList
-        .any((element) => element.id == result.favoritesLocation!.id)) {
+        .any((element) => element.id == event.id.toString())) {
+    //  favoriteList.remove(result.favoritesLocation);
       favoriteList.removeAt(favoriteList
           .indexWhere((element) => element.id == event.id.toString()));
-      sortedList[sortedList
-              .indexWhere((element) => element.id == event.id.toString())]
+      sortedList[id]
           .isFavorite = false;
     } else {
-      favoriteList.add(result.favoritesLocation!);
-      sortedList[sortedList
-              .indexWhere((element) => element.id == event.id.toString())]
+      favoriteList.add(sortedList.firstWhere((element) => element.id == event.id.toString()));
+      sortedList[id]
           .isFavorite = true;
     }
 

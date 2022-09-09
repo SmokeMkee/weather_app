@@ -3,8 +3,8 @@ import '../constants/app_colors.dart';
 import '../constants/app_styles.dart';
 import '../ui/search_location_screen.dart';
 
-class ChoiceLocationWidget extends StatelessWidget {
-  const ChoiceLocationWidget({Key? key}) : super(key: key);
+class ChoiceLocationButtonWidget extends StatelessWidget {
+  const ChoiceLocationButtonWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

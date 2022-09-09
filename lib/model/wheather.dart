@@ -1,7 +1,7 @@
 class Weather {
-  final String? status;
+  String? status;
   final int? gradus;
-  final int? hour;
+  final String? hour;
   final String? id;
 
   Weather({this.status, this.gradus, this.id, this.hour});

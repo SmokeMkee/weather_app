@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intl/intl.dart';
 import 'package:wheather_app/constants/app_styles.dart';
 import 'package:wheather_app/model/location.dart';
 
 import '../constants/app_assets.dart';
+import 'hourly_weather.dart';
+
+external int get hour;
 
 class MainMenuInfoWidget extends StatelessWidget {
   const MainMenuInfoWidget({Key? key, required this.location})
@@ -52,7 +56,8 @@ class MainMenuInfoWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Сегодня 20 янв',
+                      DateFormat.yMMMd()
+                          .format(DateTime.tryParse(location.timeToday!)!),
                       style: AppStyles.s16w600.copyWith(color: Colors.black),
                     ),
                     Text(
@@ -67,33 +72,8 @@ class MainMenuInfoWidget extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: location.weather!.length,
                   itemBuilder: (context, int index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        children: [
-                          Text(
-                            location.weather![index].gradus.toString(),
-                            style:
-                                AppStyles.s16w600.copyWith(color: Colors.black),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10),
-                            child: SvgPicture.asset(
-                              AppAssets.svg.cloudy,
-                              width: 45,
-                            ),
-                          ),
-                          Text(
-                            location.weather![index].hour.toString(),
-                            style:
-                                AppStyles.s16w400.copyWith(color: Colors.black),
-                          ),
-                          const SizedBox(
-                            height: 30,
-                          )
-                        ],
-                      ),
-                    );
+                    return HourlyWeatherWidget(
+                        hourlyWeather: location.weather![index]);
                   },
                 ),
               )

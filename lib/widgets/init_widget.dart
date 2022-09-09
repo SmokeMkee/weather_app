@@ -25,9 +25,10 @@ class InitWidget extends StatelessWidget {
       ],
       child: MultiBlocProvider(providers: [
         BlocProvider(
-            create: (context) => BlocLocation(
-                  repo: RepositoryProvider.of<RepoLocation>(context),
-                )),
+          create: (context) => BlocLocation(
+            repo: RepositoryProvider.of<RepoLocation>(context),
+          ),
+        ),
       ], child: child),
     );
   }

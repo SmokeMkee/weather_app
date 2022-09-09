@@ -7,7 +7,7 @@ import '../widgets/location_card_widget.dart';
 import '../widgets/search_field.dart';
 
 class SearchLocationScreen extends StatefulWidget {
-  SearchLocationScreen({Key? key}) : super(key: key);
+ const SearchLocationScreen({Key? key}) : super(key: key);
 
   @override
   State<SearchLocationScreen> createState() => _SearchLocationScreenState();
