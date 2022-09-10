@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
-import 'package:wheather_app/constants/app_styles.dart';
-import 'package:wheather_app/model/location.dart';
+import 'package:weather_app/constants/app_styles.dart';
+import 'package:weather_app/model/location.dart';
 
 import '../constants/app_assets.dart';
 import 'hourly_weather.dart';

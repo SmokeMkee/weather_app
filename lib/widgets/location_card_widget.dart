@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wheather_app/constants/app_styles.dart';
-import 'package:wheather_app/ui/main_screen.dart';
+import 'package:weather_app/constants/app_styles.dart';
+import 'package:weather_app/ui/main_screen.dart';
+
 import '../constants/app_assets.dart';
 import '../model/location.dart';
 import 'add_remove_favorite_widget.dart';

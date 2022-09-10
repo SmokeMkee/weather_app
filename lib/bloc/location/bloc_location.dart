@@ -1,12 +1,12 @@
 import 'dart:math';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wheather_app/repo/repo_location.dart';
+import 'package:weather_app/repo/repo_location.dart';
+
 import '../../model/location.dart';
 
-part 'states.dart';
-
 part 'events.dart';
+part 'states.dart';
 
 class BlocLocation extends Bloc<EventBlocLocation, StateBlocLocation> {
   List<String> statusWeather = [
@@ -61,24 +61,21 @@ class BlocLocation extends Bloc<EventBlocLocation, StateBlocLocation> {
     EventAddFavoritesById event,
     Emitter<StateBlocLocation> emit,
   ) async {
-
-    var id = sortedList
-        .indexWhere((element) => element.id == event.id.toString());
+    var id =
+        sortedList.indexWhere((element) => element.id == event.id.toString());
     if (favoriteList.isEmpty) {
-      favoriteList.add(sortedList.firstWhere((element) => element.id == event.id.toString()));
-      sortedList[id]
-          .isFavorite = true;
+      favoriteList.add(sortedList
+          .firstWhere((element) => element.id == event.id.toString()));
+      sortedList[id].isFavorite = true;
     } else if (favoriteList
         .any((element) => element.id == event.id.toString())) {
-    //  favoriteList.remove(result.favoritesLocation);
       favoriteList.removeAt(favoriteList
           .indexWhere((element) => element.id == event.id.toString()));
-      sortedList[id]
-          .isFavorite = false;
+      sortedList[id].isFavorite = false;
     } else {
-      favoriteList.add(sortedList.firstWhere((element) => element.id == event.id.toString()));
-      sortedList[id]
-          .isFavorite = true;
+      favoriteList.add(sortedList
+          .firstWhere((element) => element.id == event.id.toString()));
+      sortedList[id].isFavorite = true;
     }
 
     emit(

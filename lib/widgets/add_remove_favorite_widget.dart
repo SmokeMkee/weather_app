@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wheather_app/constants/app_styles.dart';
+import 'package:weather_app/constants/app_styles.dart';
+
 import '../bloc/location/bloc_location.dart';
 import '../constants/app_colors.dart';
 
@@ -11,6 +12,7 @@ class AddRemoveFavoriteWidget extends StatelessWidget {
 
   final String id;
   final bool isFavorite;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

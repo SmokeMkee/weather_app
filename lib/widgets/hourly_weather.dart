@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:wheather_app/model/wheather.dart';
+import 'package:weather_app/model/weather.dart';
 
 import '../constants/app_styles.dart';
 
@@ -8,6 +8,7 @@ class HourlyWeatherWidget extends StatelessWidget {
   const HourlyWeatherWidget({Key? key, required this.hourlyWeather})
       : super(key: key);
   final Weather hourlyWeather;
+
   @override
   Widget build(BuildContext context) {
     return Padding(

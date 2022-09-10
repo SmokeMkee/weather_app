@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:wheather_app/bloc/location/bloc_location.dart';
-import 'package:wheather_app/repo/repo_location.dart';
+import 'package:weather_app/bloc/location/bloc_location.dart';
+import 'package:weather_app/repo/repo_location.dart';
 
 import '../repo/api.dart';
 

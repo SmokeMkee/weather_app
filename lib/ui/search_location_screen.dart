@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wheather_app/bloc/location/bloc_location.dart';
+import 'package:weather_app/bloc/location/bloc_location.dart';
+import 'package:weather_app/constants/app_styles.dart';
 
-import 'package:wheather_app/constants/app_styles.dart';
 import '../widgets/location_card_widget.dart';
 import '../widgets/search_field.dart';
 
 class SearchLocationScreen extends StatefulWidget {
- const SearchLocationScreen({Key? key}) : super(key: key);
+  const SearchLocationScreen({Key? key}) : super(key: key);
 
   @override
   State<SearchLocationScreen> createState() => _SearchLocationScreenState();

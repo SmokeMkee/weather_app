@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:wheather_app/constants/app_assets.dart';
-import 'package:wheather_app/constants/app_colors.dart';
-import 'package:wheather_app/constants/app_styles.dart';
-import 'package:wheather_app/model/location.dart';
-import 'package:wheather_app/ui/search_location_screen.dart';
-import 'package:wheather_app/widgets/choice_location_button_widget.dart';
-import 'package:wheather_app/widgets/main_menu_info_widget.dart';
+import 'package:weather_app/constants/app_assets.dart';
+import 'package:weather_app/constants/app_colors.dart';
+import 'package:weather_app/constants/app_styles.dart';
+import 'package:weather_app/model/location.dart';
+import 'package:weather_app/ui/search_location_screen.dart';
+import 'package:weather_app/widgets/choice_location_button_widget.dart';
+import 'package:weather_app/widgets/main_menu_info_widget.dart';
 
 import '../bloc/location/bloc_location.dart';
 

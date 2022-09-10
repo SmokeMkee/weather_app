@@ -1,4 +1,4 @@
-import 'package:wheather_app/model/wheather.dart';
+import 'package:weather_app/model/weather.dart';
 
 class Location {
   final String? cityName;
@@ -13,9 +13,8 @@ class Location {
   final int? averageDegree;
 
   Location(
-      {
-        this.averageDegree,
-        this.timeToday,
+      {this.averageDegree,
+      this.timeToday,
       this.weather,
       this.velocity,
       this.humidity,
@@ -29,7 +28,7 @@ class Location {
     if (json == null) return Location();
     final wheather = json['wheather'] as List<dynamic>;
     return Location(
-      averageDegree: json["averageDegree"],
+        averageDegree: json["averageDegree"],
         cityName: json["cityName"],
         status: json["status"],
         degree: json["degree"],

@@ -19,8 +19,7 @@ class _Images {
 class _Svg {
   const _Svg();
 
-   final String location = 'assets/images/svg/location.svg';
-  // final String cloudy = 'assets/images/svg/cloudy.svg';
+  final String location = 'assets/images/svg/location.svg';
   final String focus = 'assets/images/svg/focus.svg';
   final String backArrow = 'assets/images/svg/back_arrow.svg';
   final String windy = 'assets/images/svg/windy.svg';
