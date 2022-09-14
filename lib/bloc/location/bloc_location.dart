@@ -36,11 +36,11 @@ class BlocLocation extends Bloc<EventBlocLocation, StateBlocLocation> {
     final result = await repo.filterByName(event.cityName);
 
     sortedList = result.productList!.where((element) {
-      for (var element in element.weather!) {
+      for (var element in element.weather) {
         element.status = statusWeather[Random().nextInt(statusWeather.length)];
       }
 
-      return element.cityName!
+      return element.cityName
           .toLowerCase()
           .contains(event.cityName.trim().toLowerCase());
     }).toList();

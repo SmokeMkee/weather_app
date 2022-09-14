@@ -51,19 +51,19 @@ class LocationCardWidget extends StatelessWidget {
                           ),
                         ),
                         AddRemoveFavoriteWidget(
-                          isFavorite: location[index].isFavorite!,
+                          isFavorite: location[index].isFavorite,
                           id: location[index].id.toString(),
                         )
                       ],
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      location[index].id!,
+                      location[index].id,
                       style: AppStyles.s16w400,
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      location[index].degree!.toString(),
+                      location[index].degree.toString(),
                       style: AppStyles.s20w600.copyWith(
                         color: Colors.black,
                       ),

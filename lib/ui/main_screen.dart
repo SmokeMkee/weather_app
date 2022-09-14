@@ -11,15 +11,10 @@ import 'package:weather_app/widgets/main_menu_info_widget.dart';
 
 import '../bloc/location/bloc_location.dart';
 
-class MainScreen extends StatefulWidget {
+class MainScreen extends StatelessWidget {
   const MainScreen({Key? key, this.location}) : super(key: key);
   final Location? location;
 
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 15  ,vertical: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -59,30 +54,27 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                     Expanded(
                       child: Text(
-                        widget.location == null
+                        location == null
                             ? 'Город не определен'
-                            : widget.location!.cityName!,
+                            : location!.cityName,
                         style: AppStyles.s16w600,
                       ),
                     ),
-                    widget.location == null
+                    location == null
                         ? const Text('')
                         : GestureDetector(
                             onTap: () {
-                              setState(
-                                () {
-                                  widget.location!.isFavorite =
-                                      !widget.location!.isFavorite!;
-                                },
-                              );
+                              location!.isFavorite = !location!.isFavorite;
+//
+
                               BlocProvider.of<BlocLocation>(context).add(
                                 EventAddFavoritesById(
-                                  id: int.tryParse(widget.location!.id!),
+                                  id: int.tryParse(location!.id),
                                 ),
                               );
                             },
                             child: Icon(
-                              widget.location!.isFavorite == true
+                              location!.isFavorite == true
                                   ? Icons.star
                                   : Icons.star_border_outlined,
                               color: Colors.white,
@@ -100,24 +92,20 @@ class _MainScreenState extends State<MainScreen> {
                       width: 200,
                     ),
                     Text(
-                      widget.location == null
-                          ? '-'
-                          : widget.location!.degree.toString(),
+                      location == null ? '-' : location!.degree.toString(),
                       style: AppStyles.s48w600,
                     ),
                     Text(
-                      widget.location == null
-                          ? '-'
-                          : widget.location!.status.toString(),
+                      location == null ? '-' : location!.status.toString(),
                       style: AppStyles.s20w600,
                     )
                   ],
                 ),
               ),
               const Spacer(),
-              widget.location == null
+              location == null
                   ? const ChoiceLocationButtonWidget()
-                  : MainMenuInfoWidget(location: widget.location!)
+                  : MainMenuInfoWidget(location: location!)
             ],
           ),
         ),

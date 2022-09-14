@@ -16,18 +16,18 @@ class HourlyWeatherWidget extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            '+${hourlyWeather.gradus} °C',
+            '+${hourlyWeather.degree} °C',
             style: AppStyles.s16w600.copyWith(color: Colors.black),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: Image.asset(
-              hourlyWeather.status!,
+              hourlyWeather.status,
               width: 60,
             ),
           ),
           Text(
-            DateFormat.Hm().format(DateTime.tryParse(hourlyWeather.hour!)!),
+            DateFormat.Hm().format(DateTime.tryParse(hourlyWeather.hour)!),
             style: AppStyles.s16w400.copyWith(color: Colors.black),
           ),
           const SizedBox(

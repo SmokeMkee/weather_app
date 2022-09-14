@@ -22,7 +22,7 @@ class ChoiceLocationButtonWidget extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => SearchLocationScreen(),
+              builder: (context) => const SearchLocationScreen(),
             ),
           );
         },

@@ -78,14 +78,7 @@ class _SearchLocationScreenState extends State<SearchLocationScreen> {
                       child: Center(child: CircularProgressIndicator()),
                     );
                   }
-                  return const Expanded(
-                    child: Center(
-                      child: Text(
-                        'У вас пока нет избранных локаций',
-                        style: AppStyles.s16w400,
-                      ),
-                    ),
-                  );
+                  return const SizedBox.shrink();
                 },
               ),
             ],

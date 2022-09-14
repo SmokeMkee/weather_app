@@ -57,7 +57,7 @@ class MainMenuInfoWidget extends StatelessWidget {
                   children: [
                     Text(
                       DateFormat.yMMMd()
-                          .format(DateTime.tryParse(location.timeToday!)!),
+                          .format(DateTime.tryParse(location.timeToday)!),
                       style: AppStyles.s16w600.copyWith(color: Colors.black),
                     ),
                     Text(
@@ -70,10 +70,10 @@ class MainMenuInfoWidget extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: location.weather!.length,
+                  itemCount: location.weather.length,
                   itemBuilder: (context, int index) {
                     return HourlyWeatherWidget(
-                        hourlyWeather: location.weather![index]);
+                        hourlyWeather: location.weather[index]);
                   },
                 ),
               )

@@ -1,16 +1,20 @@
 class Weather {
-  String? status;
-  final int? gradus;
-  final String? hour;
-  final String? id;
+   String status;
+  final int degree;
+  final String hour;
+  final String id;
 
-  Weather({this.status, this.gradus, this.id, this.hour});
+  Weather({
+    required this.status,
+    required this.degree,
+    required this.id,
+    required this.hour,
+  });
 
-  factory Weather.fromJson(Map<String, dynamic>? json) {
-    if (json == null) return Weather();
+  factory Weather.fromJson(Map<String, dynamic> json) {
     return Weather(
       status: json["status"],
-      gradus: json["gradus"],
+      degree: json["gradus"],
       id: json["id"],
       hour: json["hour"],
     );
