@@ -25,7 +25,7 @@ class BlocLocation extends Bloc<EventBlocLocation, StateBlocLocation> {
 
   BlocLocation({required this.repo}) : super(StateLocationInitial()) {
     on<EventSearchByCityName>(_eventSearchByCityName);
-    on<EventAddFavoritesById>(_addFavorite);
+    on<EventAddRemoveFavoritesById>(_addRemoveFavorite);
   }
 
   _eventSearchByCityName(
@@ -35,9 +35,13 @@ class BlocLocation extends Bloc<EventBlocLocation, StateBlocLocation> {
     emit(StateLocationLoading());
     final result = await repo.filterByName(event.cityName);
 
-    sortedList = result.productList!.where((element) {
+    sortedList = result.locationList!.where((element) {
       for (var element in element.weather) {
         element.status = statusWeather[Random().nextInt(statusWeather.length)];
+      }
+
+      if (favoriteList.any((e) => e.id == element.id)) {
+        element.isFavorite = true;
       }
 
       return element.cityName
@@ -57,24 +61,19 @@ class BlocLocation extends Bloc<EventBlocLocation, StateBlocLocation> {
     );
   }
 
-  _addFavorite(
-    EventAddFavoritesById event,
+  _addRemoveFavorite(
+    EventAddRemoveFavoritesById event,
     Emitter<StateBlocLocation> emit,
   ) async {
-    var id =
-        sortedList.indexWhere((element) => element.id == event.id.toString());
-    if (favoriteList.isEmpty) {
-      favoriteList.add(sortedList
-          .firstWhere((element) => element.id == event.id.toString()));
-      sortedList[id].isFavorite = true;
-    } else if (favoriteList
-        .any((element) => element.id == event.id.toString())) {
-      favoriteList.removeAt(favoriteList
-          .indexWhere((element) => element.id == event.id.toString()));
+    var id = sortedList.indexWhere((element) => element.id == event.id);
+    if (favoriteList.isNotEmpty &&
+        favoriteList.any((element) => element.id == event.id)) {
+      favoriteList.removeAt(
+          favoriteList.indexWhere((element) => element.id == event.id));
       sortedList[id].isFavorite = false;
     } else {
-      favoriteList.add(sortedList
-          .firstWhere((element) => element.id == event.id.toString()));
+      favoriteList
+          .add(sortedList.firstWhere((element) => element.id == event.id));
       sortedList[id].isFavorite = true;
     }
 

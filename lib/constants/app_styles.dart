@@ -24,15 +24,4 @@ class AppStyles {
     fontSize: 48,
     fontWeight: FontWeight.w600,
   );
-
-// static const s48w600 = TextStyle(
-//   color: Colors.white,
-//   fontSize: 48,
-//   fontWeight: FontWeight.w600,
-// );
-// static const s48w600 = TextStyle(
-//   color: Colors.white,
-//   fontSize: 48,
-//   fontWeight: FontWeight.w600,
-// );
 }

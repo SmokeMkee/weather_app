@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/bloc/location/bloc_location.dart';
 import 'package:weather_app/repo/repo_location.dart';
 
+import '../bloc/search_location/bloc_location.dart';
 import '../repo/api.dart';
 
 class InitWidget extends StatelessWidget {
@@ -27,7 +27,7 @@ class InitWidget extends StatelessWidget {
         BlocProvider(
           create: (context) => BlocLocation(
             repo: RepositoryProvider.of<RepoLocation>(context),
-          ),
+          )..add(EventSearchByCityName(cityName: '')),
         ),
       ], child: child),
     );

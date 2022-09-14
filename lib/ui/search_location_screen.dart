@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/bloc/location/bloc_location.dart';
 import 'package:weather_app/constants/app_styles.dart';
 
+import '../bloc/search_location/bloc_location.dart';
 import '../widgets/location_card_widget.dart';
 import '../widgets/search_field.dart';
 
@@ -14,11 +14,11 @@ class SearchLocationScreen extends StatefulWidget {
 }
 
 class _SearchLocationScreenState extends State<SearchLocationScreen> {
-  final _controller = TextEditingController();
+  final controller = TextEditingController();
 
   @override
   void dispose() {
-    _controller.dispose();
+    controller.dispose();
     super.dispose();
   }
 
@@ -36,14 +36,23 @@ class _SearchLocationScreenState extends State<SearchLocationScreen> {
                     EventSearchByCityName(cityName: value),
                   );
                 },
-                controller: _controller,
+                controller: controller,
               ),
               BlocBuilder<BlocLocation, StateBlocLocation>(
                 builder: (context, state) {
+                  if (state is StateLocationError) {
+                    return const Expanded(
+                      child: Center(child: Text('Something Error')),
+                    );
+                  }
+                  if (state is StateLocationLoading) {
+                    return const Expanded(
+                      child: Center(child: CircularProgressIndicator()),
+                    );
+                  }
                   if (state is StateLocationData) {
-                    if (_controller.text.isEmpty) {
-                      if (state.favoritesData != null &&
-                          state.favoritesData!.isNotEmpty) {
+                    if (controller.text.isEmpty) {
+                      if (state.favoritesData!.isNotEmpty) {
                         return Expanded(
                           child: LocationCardWidget(
                             location: state.favoritesData!,
@@ -59,24 +68,20 @@ class _SearchLocationScreenState extends State<SearchLocationScreen> {
                           ),
                         );
                       }
-                    }
-                    return Expanded(
-                      child: state.data.isNotEmpty
-                          ? LocationCardWidget(
-                              location: state.data,
-                            )
-                          : const Center(
-                              child: Text(
-                                'По вашему запросу ничего не найдено',
-                                style: AppStyles.s16w400,
+                    } else {
+                      return Expanded(
+                        child: state.data.isNotEmpty
+                            ? LocationCardWidget(
+                                location: state.data,
+                              )
+                            : const Center(
+                                child: Text(
+                                  'По вашему запросу ничего не найдено',
+                                  style: AppStyles.s16w400,
+                                ),
                               ),
-                            ),
-                    );
-                  }
-                  if (state is StateLocationLoading) {
-                    return const Expanded(
-                      child: Center(child: CircularProgressIndicator()),
-                    );
+                      );
+                    }
                   }
                   return const SizedBox.shrink();
                 },

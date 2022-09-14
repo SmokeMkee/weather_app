@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return InitWidget(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Wheather App',
+        title: 'Weather App',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),

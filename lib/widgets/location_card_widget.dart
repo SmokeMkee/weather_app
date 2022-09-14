@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/constants/app_colors.dart';
 import 'package:weather_app/constants/app_styles.dart';
-import 'package:weather_app/ui/main_screen.dart';
-
 import '../constants/app_assets.dart';
 import '../model/location.dart';
+import '../ui/main_screen.dart';
 import 'add_remove_favorite_widget.dart';
 
 class LocationCardWidget extends StatelessWidget {
@@ -36,7 +36,6 @@ class LocationCardWidget extends StatelessWidget {
               const SizedBox(width: 15),
               Expanded(
                 child: Column(
-                  mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -51,8 +50,9 @@ class LocationCardWidget extends StatelessWidget {
                           ),
                         ),
                         AddRemoveFavoriteWidget(
-                          isFavorite: location[index].isFavorite,
-                          id: location[index].id.toString(),
+                          isNotFavoriteColor: AppColors.accentDark,
+                          isFavoriteColor: AppColors.accentDark,
+                          location: location[index],
                         )
                       ],
                     ),

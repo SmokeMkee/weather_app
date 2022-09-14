@@ -19,7 +19,7 @@ class RepoLocation {
             (e) => Location.fromJson(e),
           )
           .toList();
-      return ResultRepoLocation(productList: locationList);
+      return ResultRepoLocation(locationList: locationList);
     } catch (error) {
       if (kDebugMode) {
         print("Error : $error");
@@ -27,34 +27,14 @@ class RepoLocation {
       return ResultRepoLocation(errorMessage: "");
     }
   }
-
-  Future<ResultRepoLocation> addFavoriteLocation(int id) async {
-    try {
-      final result = await api.dio.get(
-        'location/$id',
-      );
-
-      final locationJson = result.data;
-      final locationFavorites = Location.fromJson(locationJson);
-      locationFavorites.isFavorite = true;
-      return ResultRepoLocation(favoritesLocation: locationFavorites);
-    } catch (error) {
-      if (kDebugMode) {
-        print("Error : $error");
-      }
-      return ResultRepoLocation(errorMessage: "s");
-    }
-  }
 }
 
 class ResultRepoLocation {
   ResultRepoLocation({
-    this.favoritesLocation,
     this.errorMessage,
-    this.productList,
+    this.locationList,
   });
 
   final String? errorMessage;
-  final List<Location>? productList;
-  final Location? favoritesLocation;
+  final List<Location>? locationList;
 }

@@ -30,9 +30,6 @@ class HourlyWeatherWidget extends StatelessWidget {
             DateFormat.Hm().format(DateTime.tryParse(hourlyWeather.hour)!),
             style: AppStyles.s16w400.copyWith(color: Colors.black),
           ),
-          const SizedBox(
-            height: 30,
-          )
         ],
       ),
     );

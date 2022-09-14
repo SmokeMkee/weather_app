@@ -7,8 +7,6 @@ import 'package:weather_app/model/location.dart';
 import '../constants/app_assets.dart';
 import 'hourly_weather.dart';
 
-external int get hour;
-
 class MainMenuInfoWidget extends StatelessWidget {
   const MainMenuInfoWidget({Key? key, required this.location})
       : super(key: key);

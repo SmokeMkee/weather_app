@@ -1,5 +1,5 @@
 class Weather {
-   String status;
+  String status;
   final int degree;
   final String hour;
   final String id;

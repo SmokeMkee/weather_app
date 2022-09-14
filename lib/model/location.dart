@@ -25,8 +25,7 @@ class Location {
       this.isFavorite = false});
 
   factory Location.fromJson(Map<String, dynamic> json) {
-    // if (json == null) return Location(degree: null, velocity: null);
-    final weather = json['weather'] as List<dynamic>;
+    final weather = json['wheather'] as List<dynamic>;
     return Location(
         averageDegree: json["averageDegree"],
         cityName: json["cityName"],
