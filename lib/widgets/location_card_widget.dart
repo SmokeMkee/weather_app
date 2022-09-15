@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/constants/app_colors.dart';
 import 'package:weather_app/constants/app_styles.dart';
+import '../bloc/search_location/bloc_location.dart';
 import '../constants/app_assets.dart';
 import '../model/location.dart';
-import '../ui/main_screen.dart';
+import '../ui/main_screen/main_screen.dart';
 import 'add_remove_favorite_widget.dart';
 
 class LocationCardWidget extends StatelessWidget {
@@ -17,12 +19,13 @@ class LocationCardWidget extends StatelessWidget {
       itemBuilder: (context, int index) {
         return InkWell(
           onTap: () {
+            BlocProvider.of<BlocLocation>(context).add(
+              EventSelectedLocation(id: location[index].id),
+            );
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => MainScreen(
-                  location: location[index],
-                ),
+                builder: (context) => const MainScreen(),
               ),
             );
           },

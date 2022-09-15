@@ -22,10 +22,11 @@ class BlocLocation extends Bloc<EventBlocLocation, StateBlocLocation> {
   final RepoLocation repo;
   List<Location> sortedList = [];
   List<Location> favoriteList = [];
-
+  Location? selectedLocation;
   BlocLocation({required this.repo}) : super(StateLocationInitial()) {
     on<EventSearchByCityName>(_eventSearchByCityName);
     on<EventAddRemoveFavoritesById>(_addRemoveFavorite);
+    on<EventSelectedLocation>(_eventSelectedLocation);
   }
 
   _eventSearchByCityName(
@@ -57,7 +58,35 @@ class BlocLocation extends Bloc<EventBlocLocation, StateBlocLocation> {
     }
 
     emit(
-      StateLocationData(data: sortedList, favoritesData: favoriteList),
+      StateLocationData(
+        data: sortedList,
+        favoritesData: favoriteList,
+        selectedLocation: selectedLocation,
+      ),
+    );
+  }
+
+  _eventSelectedLocation(
+    EventSelectedLocation event,
+    Emitter<StateBlocLocation> emit,
+  ) async {
+    emit(StateLocationInitial());
+    selectedLocation =
+        sortedList.where((element) => element.id == event.id).first;
+    if(selectedLocation == null){
+      emit(
+        StateLocationError(error: 'error'
+
+        ),
+      );
+    }
+
+    emit(
+      StateLocationData(
+        selectedLocation: selectedLocation,
+        data: sortedList,
+        favoritesData: favoriteList,
+      ),
     );
   }
 
@@ -78,7 +107,10 @@ class BlocLocation extends Bloc<EventBlocLocation, StateBlocLocation> {
     }
 
     emit(
-      StateLocationData(favoritesData: favoriteList, data: sortedList),
+      StateLocationData(
+          favoritesData: favoriteList,
+          data: sortedList,
+          selectedLocation: selectedLocation),
     );
   }
 }

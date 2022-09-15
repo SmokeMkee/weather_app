@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:weather_app/model/location.dart';
 
-import '../constants/app_assets.dart';
-import '../constants/app_styles.dart';
-import '../ui/search_location_screen.dart';
-import 'add_remove_favorite_widget.dart';
+import '../../../constants/app_assets.dart';
+import '../../../constants/app_styles.dart';
+import '../../search_screen/search_location_screen.dart';
+import '../../../widgets/add_remove_favorite_widget.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({Key? key, required this.location}) : super(key: key);
@@ -26,7 +26,7 @@ class HeaderWidget extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SearchLocationScreen(),
+                  builder: (context) => const SearchLocationScreen(),
                 ),
               );
             },
@@ -44,7 +44,8 @@ class HeaderWidget extends StatelessWidget {
               ? const SizedBox.shrink()
               : AddRemoveFavoriteWidget(
                   isNotFavoriteColor: Colors.white,
-                  isFavoriteColor: Colors.white, location: location!,
+                  isFavoriteColor: Colors.white,
+                  location: location!,
                 )
         ],
       ),

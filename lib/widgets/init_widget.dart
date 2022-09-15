@@ -23,13 +23,16 @@ class InitWidget extends StatelessWidget {
           ),
         ),
       ],
-      child: MultiBlocProvider(providers: [
-        BlocProvider(
-          create: (context) => BlocLocation(
-            repo: RepositoryProvider.of<RepoLocation>(context),
-          )..add(EventSearchByCityName(cityName: '')),
-        ),
-      ], child: child),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => BlocLocation(
+              repo: RepositoryProvider.of<RepoLocation>(context),
+            )..add(EventSearchByCityName(cityName: '')),
+          ),
+        ],
+        child: child,
+      ),
     );
   }
 }

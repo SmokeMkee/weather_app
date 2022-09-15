@@ -4,7 +4,7 @@ import 'package:weather_app/constants/app_styles.dart';
 import 'package:weather_app/model/location.dart';
 import '../bloc/search_location/bloc_location.dart';
 
-class AddRemoveFavoriteWidget extends StatefulWidget {
+class AddRemoveFavoriteWidget extends StatelessWidget {
   const AddRemoveFavoriteWidget(
       {Key? key,
       required this.isFavoriteColor,
@@ -16,21 +16,13 @@ class AddRemoveFavoriteWidget extends StatefulWidget {
   final Color isNotFavoriteColor;
 
   @override
-  State<AddRemoveFavoriteWidget> createState() =>
-      _AddRemoveFavoriteWidgetState();
-}
-
-class _AddRemoveFavoriteWidgetState extends State<AddRemoveFavoriteWidget> {
-  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         BlocProvider.of<BlocLocation>(context).add(
-          EventAddRemoveFavoritesById(id: widget.location.id),
+          EventAddRemoveFavoritesById(id: location.id),
         );
-        setState(() {
-          widget.location.isFavorite = !widget.location.isFavorite;
-        });
+
         final snackBar = SnackBar(
           duration: const Duration(seconds: 1),
           shape: RoundedRectangleBorder(
@@ -50,9 +42,9 @@ class _AddRemoveFavoriteWidgetState extends State<AddRemoveFavoriteWidget> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    widget.location.isFavorite
-                        ? 'Локация добавлена в избранное'
-                        : 'Локация удалена',
+                    location.isFavorite
+                        ? 'Локация удалена'
+                        : 'Локация добавлена в избранное',
                     style: AppStyles.s16w400,
                   ),
                 ),
@@ -63,15 +55,15 @@ class _AddRemoveFavoriteWidgetState extends State<AddRemoveFavoriteWidget> {
         );
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       },
-      child: widget.location.isFavorite
+      child: location.isFavorite
           ? Icon(
               Icons.star,
-              color: widget.isFavoriteColor,
+              color: isFavoriteColor,
               size: 30,
             )
           : Icon(
               Icons.star_border_outlined,
-              color: widget.isNotFavoriteColor,
+              color: isNotFavoriteColor,
               size: 30,
             ),
     );

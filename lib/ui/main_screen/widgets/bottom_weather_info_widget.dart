@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
-import 'package:weather_app/constants/app_styles.dart';
 import 'package:weather_app/model/location.dart';
-
-import '../constants/app_assets.dart';
+import '../../../constants/app_assets.dart';
+import '../../../constants/app_styles.dart';
 import 'hourly_weather.dart';
 
-class MainMenuInfoWidget extends StatelessWidget {
-  const MainMenuInfoWidget({Key? key, required this.location})
+class BottomWeatherInfoWidget extends StatelessWidget {
+  const BottomWeatherInfoWidget({Key? key, required this.location})
       : super(key: key);
   final Location location;
-
   @override
   Widget build(BuildContext context) {
     return Column(

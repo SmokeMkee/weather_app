@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/constants/app_styles.dart';
 
-import '../bloc/search_location/bloc_location.dart';
-import '../widgets/location_card_widget.dart';
-import '../widgets/search_field.dart';
+import '../../bloc/search_location/bloc_location.dart';
+import '../../widgets/location_card_widget.dart';
+import 'widgets/search_field.dart';
 
 class SearchLocationScreen extends StatefulWidget {
   const SearchLocationScreen({Key? key}) : super(key: key);

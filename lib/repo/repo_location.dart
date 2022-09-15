@@ -27,14 +27,32 @@ class RepoLocation {
       return ResultRepoLocation(errorMessage: "");
     }
   }
+
+  Future<ResultRepoLocation> selectLocation(String id) async {
+    try {
+      final result = await api.dio.get(
+        'location/$id',
+      );
+      final locationJson = result.data;
+      final selectedLocation = Location.fromJson(locationJson);
+      return ResultRepoLocation(selectedLocation: selectedLocation);
+    } catch (error) {
+      if (kDebugMode) {
+        print("Error : $error");
+      }
+      return ResultRepoLocation(errorMessage: "Error");
+    }
+  }
 }
 
 class ResultRepoLocation {
   ResultRepoLocation({
+    this.selectedLocation,
     this.errorMessage,
     this.locationList,
   });
 
   final String? errorMessage;
   final List<Location>? locationList;
+  final Location? selectedLocation;
 }

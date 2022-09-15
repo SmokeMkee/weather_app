@@ -14,3 +14,8 @@ class EventAddRemoveFavoritesById extends EventBlocLocation {
   EventAddRemoveFavoritesById({required this.id});
 }
 
+class EventSelectedLocation extends EventBlocLocation {
+  final String id;
+
+  EventSelectedLocation({required this.id});
+}

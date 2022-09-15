@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../constants/app_colors.dart';
 import '../constants/app_styles.dart';
-import '../ui/search_location_screen.dart';
+import '../ui/search_screen/search_location_screen.dart';
 
 class ChoiceLocationButtonWidget extends StatelessWidget {
   const ChoiceLocationButtonWidget({Key? key}) : super(key: key);
@@ -22,7 +22,7 @@ class ChoiceLocationButtonWidget extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => SearchLocationScreen(),
+              builder: (context) => const SearchLocationScreen(),
             ),
           );
         },

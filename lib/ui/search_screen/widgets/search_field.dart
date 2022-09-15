@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../constants/app_assets.dart';
+import '../../../constants/app_assets.dart';
 
 class SearchField extends StatelessWidget {
   const SearchField(

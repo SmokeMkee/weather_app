@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/model/weather.dart';
 
-import '../constants/app_styles.dart';
+import '../../../constants/app_styles.dart';
 
 class HourlyWeatherWidget extends StatelessWidget {
   const HourlyWeatherWidget({Key? key, required this.hourlyWeather})
