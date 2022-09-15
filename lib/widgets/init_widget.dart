@@ -28,7 +28,9 @@ class InitWidget extends StatelessWidget {
           BlocProvider(
             create: (context) => BlocLocation(
               repo: RepositoryProvider.of<RepoLocation>(context),
-            )..add(EventSearchByCityName(cityName: '')),
+            )..add(
+                EventSearchByCityName(cityName: ''),
+              ),
           ),
         ],
         child: child,

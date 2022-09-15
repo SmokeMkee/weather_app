@@ -7,7 +7,11 @@ class StateLocationInitial extends StateBlocLocation {}
 class StateLocationLoading extends StateBlocLocation {}
 
 class StateLocationData extends StateBlocLocation {
-  StateLocationData({required this.data, this.favoritesData,this.selectedLocation, });
+  StateLocationData({
+    required this.data,
+    this.favoritesData,
+    this.selectedLocation,
+  });
 
   final List<Location> data;
   final List<Location>? favoritesData;

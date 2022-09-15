@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/constants/app_styles.dart';
 import 'package:weather_app/model/location.dart';
+
 import '../bloc/search_location/bloc_location.dart';
 
 class AddRemoveFavoriteWidget extends StatelessWidget {

@@ -26,20 +26,28 @@ class MainScreen extends StatelessWidget {
           child: Column(
             children: [
               BlocBuilder<BlocLocation, StateBlocLocation>(
-                  builder: (context, state) {
-                if (state is StateLocationError) {
-                  return const Text('Error');
-                }
-                if (state is StateLocationData) {
-                  return Expanded(
+                builder: (context, state) {
+                  if (state is StateLocationError) {
+                    return const Text('Error');
+                  }
+                  if (state is StateLocationData) {
+                    return Expanded(
                       child:
-                          MainMenuInfoWidget(location: state.selectedLocation));
-                }
-                if (state is StateLocationLoading) {
-                  return const Expanded(child: Center(child: CircularProgressIndicator(color: Colors.white,)));
-                }
-                return const SizedBox.shrink();
-              }),
+                          MainMenuInfoWidget(location: state.selectedLocation),
+                    );
+                  }
+                  if (state is StateLocationLoading) {
+                    return const Expanded(
+                      child: Center(
+                        child: CircularProgressIndicator(
+                          color: Colors.white,
+                        ),
+                      ),
+                    );
+                  }
+                  return const SizedBox.shrink();
+                },
+              ),
             ],
           ),
         ),

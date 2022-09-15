@@ -4,8 +4,8 @@ import 'package:weather_app/model/location.dart';
 
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_styles.dart';
-import '../../search_screen/search_location_screen.dart';
 import '../../../widgets/add_remove_favorite_widget.dart';
+import '../../search_screen/search_location_screen.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({Key? key, required this.location}) : super(key: key);

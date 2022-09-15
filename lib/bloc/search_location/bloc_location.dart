@@ -23,6 +23,7 @@ class BlocLocation extends Bloc<EventBlocLocation, StateBlocLocation> {
   List<Location> sortedList = [];
   List<Location> favoriteList = [];
   Location? selectedLocation;
+
   BlocLocation({required this.repo}) : super(StateLocationInitial()) {
     on<EventSearchByCityName>(_eventSearchByCityName);
     on<EventAddRemoveFavoritesById>(_addRemoveFavorite);
@@ -73,11 +74,9 @@ class BlocLocation extends Bloc<EventBlocLocation, StateBlocLocation> {
     emit(StateLocationInitial());
     selectedLocation =
         sortedList.where((element) => element.id == event.id).first;
-    if(selectedLocation == null){
+    if (selectedLocation == null) {
       emit(
-        StateLocationError(error: 'error'
-
-        ),
+        StateLocationError(error: 'error'),
       );
     }
 
