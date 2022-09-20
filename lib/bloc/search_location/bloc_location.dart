@@ -84,7 +84,7 @@ class BlocLocation extends Bloc<EventBlocLocation, StateBlocLocation> {
       StateLocationData(
         selectedLocation: selectedLocation,
         data: sortedList,
-        favoritesData: favoriteList,
+
       ),
     );
   }

@@ -38,39 +38,31 @@ class _SearchLocationScreenState extends State<SearchLocationScreen> {
                 },
                 controller: controller,
               ),
-              BlocBuilder<BlocLocation, StateBlocLocation>(
-                builder: (context, state) {
-                  if (state is StateLocationError) {
-                    return const Expanded(
-                      child: Center(child: Text('Something Error')),
-                    );
-                  }
-                  if (state is StateLocationLoading) {
-                    return const Expanded(
-                      child: Center(child: CircularProgressIndicator()),
-                    );
-                  }
-                  if (state is StateLocationData) {
-                    if (controller.text.isEmpty) {
-                      if (state.favoritesData!.isNotEmpty) {
-                        return Expanded(
-                          child: LocationCardWidget(
+              Expanded(
+                child: BlocBuilder<BlocLocation, StateBlocLocation>(
+                  builder: (context, state) {
+                    if (state is StateLocationError) {
+                      return const Center(child: Text('Something Error'));
+                    }
+                    if (state is StateLocationLoading) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                    if (state is StateLocationData) {
+                      if (controller.text.isEmpty) {
+                        if (state.favoritesData!.isNotEmpty) {
+                          return LocationCardWidget(
                             location: state.favoritesData!,
-                          ),
-                        );
-                      } else {
-                        return const Expanded(
-                          child: Center(
+                          );
+                        } else {
+                          return const Center(
                             child: Text(
                               'У вас пока нет избранных локаций',
                               style: AppStyles.s16w400,
                             ),
-                          ),
-                        );
-                      }
-                    } else {
-                      return Expanded(
-                        child: state.data.isNotEmpty
+                          );
+                        }
+                      } else {
+                        return state.data.isNotEmpty
                             ? LocationCardWidget(
                                 location: state.data,
                               )
@@ -79,12 +71,12 @@ class _SearchLocationScreenState extends State<SearchLocationScreen> {
                                   'По вашему запросу ничего не найдено',
                                   style: AppStyles.s16w400,
                                 ),
-                              ),
-                      );
+                              );
+                      }
                     }
-                  }
-                  return const SizedBox.shrink();
-                },
+                    return const SizedBox.shrink();
+                  },
+                ),
               ),
             ],
           ),

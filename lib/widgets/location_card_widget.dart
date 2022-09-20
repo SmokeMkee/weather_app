@@ -23,7 +23,7 @@ class LocationCardWidget extends StatelessWidget {
             BlocProvider.of<BlocLocation>(context).add(
               EventSelectedLocation(id: location[index].id),
             );
-            Navigator.pushReplacement(
+            Navigator.pop(
               context,
               MaterialPageRoute(
                 builder: (context) => const MainScreen(),

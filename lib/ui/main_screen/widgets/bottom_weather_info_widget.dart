@@ -49,7 +49,7 @@ class BottomWeatherInfoWidget extends StatelessWidget {
             children: [
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                    const EdgeInsets.fromLTRB(20, 20, 20, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -66,14 +66,7 @@ class BottomWeatherInfoWidget extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: location.weather.length,
-                  itemBuilder: (context, int index) {
-                    return HourlyWeatherWidget(
-                        hourlyWeather: location.weather[index]);
-                  },
-                ),
+                child: HourlyWeatherWidget(hourlyWeather: location.weather,)
               )
             ],
           ),
