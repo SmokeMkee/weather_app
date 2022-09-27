@@ -1,6 +1,6 @@
 import 'package:weather_app/model/weather.dart';
 
-class Location {
+class Locate {
   final String cityName;
   final String status;
   final int degree;
@@ -12,7 +12,7 @@ class Location {
   final String timeToday;
   final int averageDegree;
 
-  Location(
+  Locate(
       {required this.averageDegree,
       required this.timeToday,
       required this.weather,
@@ -24,9 +24,9 @@ class Location {
       required this.id,
       this.isFavorite = false});
 
-  factory Location.fromJson(Map<String, dynamic> json) {
+  factory Locate.fromJson(Map<String, dynamic> json) {
     final weather = json['wheather'] as List<dynamic>;
-    return Location(
+    return Locate(
         averageDegree: json["averageDegree"],
         cityName: json["cityName"],
         status: json["status"],

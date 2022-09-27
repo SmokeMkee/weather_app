@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/bloc/search_location/bloc_location.dart';
 
 import '../constants/app_colors.dart';
 import '../constants/app_styles.dart';
@@ -19,6 +21,8 @@ class ChoiceLocationButtonWidget extends StatelessWidget {
           ),
         ),
         onPressed: () {
+          BlocProvider.of<BlocLocation>(context)
+              .add(EventShowFavoriteLocation());
           Navigator.push(
             context,
             MaterialPageRoute(

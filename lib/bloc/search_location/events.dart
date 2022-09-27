@@ -19,3 +19,11 @@ class EventSelectedLocation extends EventBlocLocation {
 
   EventSelectedLocation({required this.id});
 }
+
+class EventShowHistoryLocation extends EventBlocLocation {}
+
+class EventShowFavoriteLocation extends EventBlocLocation {}
+
+class EventClearHistoryLocation extends EventBlocLocation {}
+
+class EventFindLocation extends EventBlocLocation {}

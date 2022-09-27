@@ -7,10 +7,10 @@ import '../../../widgets/choice_location_button_widget.dart';
 import 'bottom_weather_info_widget.dart';
 import 'header_widget.dart';
 
-class MainMenuInfoWidget extends StatelessWidget {
-  const MainMenuInfoWidget({Key? key, required this.location})
+class SelectedLocationWidget extends StatelessWidget {
+  const SelectedLocationWidget({Key? key, required this.location})
       : super(key: key);
-  final Location? location;
+  final Locate? location;
 
   @override
   Widget build(BuildContext context) {

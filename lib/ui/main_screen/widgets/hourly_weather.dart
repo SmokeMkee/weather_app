@@ -16,6 +16,7 @@ class HourlyWeatherWidget extends StatefulWidget {
 
 class _HourlyWeatherWidgetState extends State<HourlyWeatherWidget> {
   int? selectedIndex;
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -30,8 +31,9 @@ class _HourlyWeatherWidgetState extends State<HourlyWeatherWidget> {
           },
           child: Container(
             decoration: BoxDecoration(
-                color: selectedIndex == index ? AppColors.accentLight : null,
-                borderRadius: BorderRadius.circular(12)),
+              color: selectedIndex == index ? AppColors.accentLight : null,
+              borderRadius: BorderRadius.circular(12),
+            ),
             margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
             padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
             child: Column(

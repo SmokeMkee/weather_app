@@ -1,21 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:weather_app/bloc/search_location/bloc_location.dart';
 
 import '../../../constants/app_assets.dart';
 
-class SearchField extends StatelessWidget {
-  const SearchField(
-      {Key? key, required this.onChanged, required this.controller})
+class SearchFieldWidget extends StatelessWidget {
+  const SearchFieldWidget({Key? key, required this.controller})
       : super(key: key);
-  final TextEditingController? controller;
-  final ValueChanged<String>? onChanged;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          BlocProvider.of<BlocLocation>(context).add(
+            EventSearchByCityName(cityName: value),
+          );
+        } else {
+          BlocProvider.of<BlocLocation>(context).add(
+            EventShowHistoryLocation(),
+          );
+        }
+      },
+      onTap: () => {
+        if (controller.text.isEmpty)
+          {
+            BlocProvider.of<BlocLocation>(context).add(
+              EventShowHistoryLocation(),
+            )
+          }
+      },
       controller: controller,
-      onChanged: onChanged,
       decoration: InputDecoration(
+        hintText: 'Поиск локации',
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             width: 1,
@@ -25,6 +44,8 @@ class SearchField extends StatelessWidget {
         ),
         prefixIcon: GestureDetector(
           onTap: () {
+            BlocProvider.of<BlocLocation>(context)
+                .add(EventSelectedLocation(id: ''));
             Navigator.pop(context);
           },
           child: Padding(
@@ -35,6 +56,8 @@ class SearchField extends StatelessWidget {
           ),
         ),
         suffixIcon: GestureDetector(
+          onTap: () =>
+              BlocProvider.of<BlocLocation>(context).add(EventFindLocation()),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 15),
             child: SvgPicture.asset(

@@ -12,7 +12,7 @@ import 'add_remove_favorite_widget.dart';
 class LocationCardWidget extends StatelessWidget {
   const LocationCardWidget({Key? key, required this.location})
       : super(key: key);
-  final List<Location> location;
+  final List<Locate> location;
 
   @override
   Widget build(BuildContext context) {

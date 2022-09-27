@@ -16,7 +16,7 @@ class RepoLocation {
       final List locationListJson = result.data;
       final locationList = locationListJson
           .map(
-            (e) => Location.fromJson(e),
+            (e) => Locate.fromJson(e),
           )
           .toList();
       return ResultRepoLocation(locationList: locationList);
@@ -34,7 +34,7 @@ class RepoLocation {
         'location/$id',
       );
       final locationJson = result.data;
-      final selectedLocation = Location.fromJson(locationJson);
+      final selectedLocation = Locate.fromJson(locationJson);
       return ResultRepoLocation(selectedLocation: selectedLocation);
     } catch (error) {
       if (kDebugMode) {
@@ -53,6 +53,6 @@ class ResultRepoLocation {
   });
 
   final String? errorMessage;
-  final List<Location>? locationList;
-  final Location? selectedLocation;
+  final List<Locate>? locationList;
+  final Locate? selectedLocation;
 }

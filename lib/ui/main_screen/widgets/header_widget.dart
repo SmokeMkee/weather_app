@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:weather_app/model/location.dart';
 
+import '../../../bloc/search_location/bloc_location.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_styles.dart';
 import '../../../widgets/add_remove_favorite_widget.dart';
@@ -9,7 +11,7 @@ import '../../search_screen/search_location_screen.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({Key? key, required this.location}) : super(key: key);
-  final Location? location;
+  final Locate? location;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,8 @@ class HeaderWidget extends StatelessWidget {
               color: Colors.white,
             ),
             onTap: () {
+              BlocProvider.of<BlocLocation>(context)
+                  .add(EventShowFavoriteLocation());
               Navigator.push(
                 context,
                 MaterialPageRoute(

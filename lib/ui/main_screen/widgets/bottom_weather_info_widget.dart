@@ -10,7 +10,7 @@ import 'hourly_weather.dart';
 class BottomWeatherInfoWidget extends StatelessWidget {
   const BottomWeatherInfoWidget({Key? key, required this.location})
       : super(key: key);
-  final Location location;
+  final Locate location;
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +48,7 @@ class BottomWeatherInfoWidget extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding:
-                    const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -66,8 +65,9 @@ class BottomWeatherInfoWidget extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: HourlyWeatherWidget(hourlyWeather: location.weather,)
-              )
+                  child: HourlyWeatherWidget(
+                hourlyWeather: location.weather,
+              ))
             ],
           ),
         ),

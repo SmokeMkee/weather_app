@@ -1,8 +1,8 @@
 <svg fill="none" height="148" viewBox="0 0 148 148" width="148" xmlns="http://www.w3.org/2000/svg">
     <g filter="url(#filter0_ii_3_470)">
-        <path clip-rule="evenodd" d="M70.8059 93.9035V93.9049H39.7482C24.2896 93.9049 11.7579 81.3732 11.7579 65.9146C11.7579 50.456 24.2895 37.9243 39.7482 37.9243H41.2819C46.7076 37.9243 51.7915 39.3878 56.1603 41.9417C61.8396 25.1153 77.7526 13 96.4954 13H98.6042C120.945 13 139.056 31.1109 139.056 53.4518C139.056 75.7926 120.945 93.9035 98.6042 93.9035H70.8059Z"
-            fill="#E2E2E2"
-            fill-rule="evenodd" />
+        <path clip-rule="evenodd"
+            d="M70.8059 93.9035V93.9049H39.7482C24.2896 93.9049 11.7579 81.3732 11.7579 65.9146C11.7579 50.456 24.2895 37.9243 39.7482 37.9243H41.2819C46.7076 37.9243 51.7915 39.3878 56.1603 41.9417C61.8396 25.1153 77.7526 13 96.4954 13H98.6042C120.945 13 139.056 31.1109 139.056 53.4518C139.056 75.7926 120.945 93.9035 98.6042 93.9035H70.8059Z"
+            fill="#E2E2E2" fill-rule="evenodd" />
     </g>
     <path
         d="M93.5886 69.7917L118.206 44.5045L112.481 63.7448L123.358 67.0431L97.5961 92.88L103.893 73.6397L93.5886 69.7917Z"
@@ -32,19 +32,19 @@
         d="M86.0806 121.452L87.2002 126.65C87.8185 129.521 86.0538 132.577 83.2585 133.477C80.4633 134.377 77.6961 132.779 77.0778 129.909C76.4595 127.038 78.2242 123.981 81.0194 123.081L86.0806 121.452Z"
         fill="url(#paint8_radial_3_470)" />
     <defs>
-        <filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="106.905" id="filter0_ii_3_470" width="153.298"
-            x="-6.24213" y="-2">
+        <filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="106.905"
+            id="filter0_ii_3_470" width="153.298" x="-6.24213" y="-2">
             <feFlood flood-opacity="0" result="BackgroundImageFix" />
             <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape" />
-            <feColorMatrix in="SourceAlpha" result="hardAlpha"
-                type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+            <feColorMatrix in="SourceAlpha" result="hardAlpha" type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
             <feOffset dx="8" dy="-15" />
             <feGaussianBlur stdDeviation="15" />
             <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic" />
             <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" />
             <feBlend in2="shape" mode="normal" result="effect1_innerShadow_3_470" />
-            <feColorMatrix in="SourceAlpha" result="hardAlpha"
-                type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+            <feColorMatrix in="SourceAlpha" result="hardAlpha" type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
             <feOffset dx="-18" dy="11" />
             <feGaussianBlur stdDeviation="15" />
             <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic" />
@@ -52,48 +52,57 @@
             <feBlend in2="effect1_innerShadow_3_470" mode="normal"
                 result="effect2_innerShadow_3_470" />
         </filter>
-        <radialGradient cx="0" cy="0" gradientTransform="translate(114.396 55.5078) rotate(119.107) scale(42.774 36.5413)" gradientUnits="userSpaceOnUse" id="paint0_radial_3_470"
-            r="1">
+        <radialGradient cx="0" cy="0"
+            gradientTransform="translate(114.396 55.5078) rotate(119.107) scale(42.774 36.5413)"
+            gradientUnits="userSpaceOnUse" id="paint0_radial_3_470" r="1">
             <stop stop-color="#FFF72C" />
             <stop offset="1" stop-color="#DF7800" />
         </radialGradient>
-        <radialGradient cx="0" cy="0" gradientTransform="translate(80.905 85.2772) rotate(119.107) scale(42.774 36.5413)" gradientUnits="userSpaceOnUse" id="paint1_radial_3_470"
-            r="1">
+        <radialGradient cx="0" cy="0"
+            gradientTransform="translate(80.905 85.2772) rotate(119.107) scale(42.774 36.5413)"
+            gradientUnits="userSpaceOnUse" id="paint1_radial_3_470" r="1">
             <stop stop-color="#FFF72C" />
             <stop offset="1" stop-color="#DF7800" />
         </radialGradient>
-        <radialGradient cx="0" cy="0" gradientTransform="translate(47.4144 62.9501) rotate(119.107) scale(42.774 36.5413)" gradientUnits="userSpaceOnUse" id="paint2_radial_3_470"
-            r="1">
+        <radialGradient cx="0" cy="0"
+            gradientTransform="translate(47.4144 62.9501) rotate(119.107) scale(42.774 36.5413)"
+            gradientUnits="userSpaceOnUse" id="paint2_radial_3_470" r="1">
             <stop stop-color="#FFF72C" />
             <stop offset="1" stop-color="#DF7800" />
         </radialGradient>
-        <radialGradient cx="0" cy="0" gradientTransform="translate(95.3356 112.987) rotate(-34.1445) scale(13.8863 10.2306)" gradientUnits="userSpaceOnUse" id="paint3_radial_3_470"
-            r="1">
+        <radialGradient cx="0" cy="0"
+            gradientTransform="translate(95.3356 112.987) rotate(-34.1445) scale(13.8863 10.2306)"
+            gradientUnits="userSpaceOnUse" id="paint3_radial_3_470" r="1">
             <stop stop-color="#ADEBFF" />
             <stop offset="1" stop-color="#5CC4E5" />
         </radialGradient>
-        <radialGradient cx="0" cy="0" gradientTransform="translate(39.5178 112.987) rotate(-34.1445) scale(13.8863 10.2306)" gradientUnits="userSpaceOnUse" id="paint4_radial_3_470"
-            r="1">
+        <radialGradient cx="0" cy="0"
+            gradientTransform="translate(39.5178 112.987) rotate(-34.1445) scale(13.8863 10.2306)"
+            gradientUnits="userSpaceOnUse" id="paint4_radial_3_470" r="1">
             <stop stop-color="#ADEBFF" />
             <stop offset="1" stop-color="#5CC4E5" />
         </radialGradient>
-        <radialGradient cx="0" cy="0" gradientTransform="translate(9.74818 112.987) rotate(-34.1445) scale(13.8863 10.2306)" gradientUnits="userSpaceOnUse" id="paint5_radial_3_470"
-            r="1">
+        <radialGradient cx="0" cy="0"
+            gradientTransform="translate(9.74818 112.987) rotate(-34.1445) scale(13.8863 10.2306)"
+            gradientUnits="userSpaceOnUse" id="paint5_radial_3_470" r="1">
             <stop stop-color="#ADEBFF" />
             <stop offset="1" stop-color="#5CC4E5" />
         </radialGradient>
-        <radialGradient cx="0" cy="0" gradientTransform="translate(24.6331 131.593) rotate(-34.1445) scale(13.8863 10.2306)" gradientUnits="userSpaceOnUse" id="paint6_radial_3_470"
-            r="1">
+        <radialGradient cx="0" cy="0"
+            gradientTransform="translate(24.6331 131.593) rotate(-34.1445) scale(13.8863 10.2306)"
+            gradientUnits="userSpaceOnUse" id="paint6_radial_3_470" r="1">
             <stop stop-color="#ADEBFF" />
             <stop offset="1" stop-color="#5CC4E5" />
         </radialGradient>
-        <radialGradient cx="0" cy="0" gradientTransform="translate(50.6814 131.593) rotate(-34.1445) scale(13.8863 10.2306)" gradientUnits="userSpaceOnUse" id="paint7_radial_3_470"
-            r="1">
+        <radialGradient cx="0" cy="0"
+            gradientTransform="translate(50.6814 131.593) rotate(-34.1445) scale(13.8863 10.2306)"
+            gradientUnits="userSpaceOnUse" id="paint7_radial_3_470" r="1">
             <stop stop-color="#ADEBFF" />
             <stop offset="1" stop-color="#5CC4E5" />
         </radialGradient>
-        <radialGradient cx="0" cy="0" gradientTransform="translate(76.7296 131.593) rotate(-34.1445) scale(13.8863 10.2306)" gradientUnits="userSpaceOnUse" id="paint8_radial_3_470"
-            r="1">
+        <radialGradient cx="0" cy="0"
+            gradientTransform="translate(76.7296 131.593) rotate(-34.1445) scale(13.8863 10.2306)"
+            gradientUnits="userSpaceOnUse" id="paint8_radial_3_470" r="1">
             <stop stop-color="#ADEBFF" />
             <stop offset="1" stop-color="#5CC4E5" />
         </radialGradient>

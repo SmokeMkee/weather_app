@@ -12,7 +12,7 @@ class AddRemoveFavoriteWidget extends StatelessWidget {
       required this.isNotFavoriteColor,
       required this.location})
       : super(key: key);
-  final Location location;
+  final Locate location;
   final Color isFavoriteColor;
   final Color isNotFavoriteColor;
 
@@ -50,6 +50,19 @@ class AddRemoveFavoriteWidget extends StatelessWidget {
                   ),
                 ),
               ),
+              location.isFavorite
+                  ? TextButton(
+                      onPressed: () {
+                        BlocProvider.of<BlocLocation>(context).add(
+                          EventAddRemoveFavoritesById(id: location.id),
+                        );
+                      },
+                      child: const Text(
+                        'Отменить',
+                        style: AppStyles.s16w400,
+                      ),
+                    )
+                  : const SizedBox.shrink(),
             ],
           ),
           backgroundColor: (Colors.white),

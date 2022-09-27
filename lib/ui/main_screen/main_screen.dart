@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/bloc/search_location/bloc_location.dart';
 import 'package:weather_app/constants/app_assets.dart';
 import 'package:weather_app/constants/app_colors.dart';
-import 'package:weather_app/ui/main_screen/widgets/main_menu_info_widget.dart';
+import 'package:weather_app/ui/main_screen/widgets/selected_location_widget.dart';
+import 'package:weather_app/widgets/on_error_widget.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({
@@ -25,28 +26,27 @@ class MainScreen extends StatelessWidget {
           ),
           child: Column(
             children: [
-              BlocBuilder<BlocLocation, StateBlocLocation>(
-                builder: (context, state) {
-                  if (state is StateLocationError) {
-                    return const Text('Error');
-                  }
-                  if (state is StateLocationData) {
-                    return Expanded(
-                      child:
-                          MainMenuInfoWidget(location: state.selectedLocation),
-                    );
-                  }
-                  if (state is StateLocationLoading) {
-                    return const Expanded(
-                      child: Center(
+              Expanded(
+                child: BlocBuilder<BlocLocation, StateBlocLocation>(
+                  builder: (context, state) {
+                    if (state is StateLocationError) {
+                      return const OnErrorWidget(
+                          errorTitle: 'Что то пошло не так');
+                    }
+                    if (state is StateLocationData) {
+                      return SelectedLocationWidget(
+                          location: state.selectedLocation);
+                    }
+                    if (state is StateLocationLoading) {
+                      return const Center(
                         child: CircularProgressIndicator(
                           color: Colors.white,
                         ),
-                      ),
-                    );
-                  }
-                  return const SizedBox.shrink();
-                },
+                      );
+                    }
+                    return const SizedBox.shrink();
+                  },
+                ),
               ),
             ],
           ),
